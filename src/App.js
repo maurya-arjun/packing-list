@@ -31,16 +31,24 @@ const App = () => {
   }
 
   return (
-    <div>
-      <Logo />
-      <Form onAddItems={handleAddItems} />
-      <PackingList
-        items={items}
-        onDeleteItem={handleDeleteItem}
-        onToggleItem={handleToggleItem}
-        onClearList={handleClearList}
-      />
-      <Stats items={items} />
+    <div className="min-h-screen bg-gray-100 p-4 md:p-6">
+      <div className="max-w-3xl mx-auto flex flex-col gap-6">
+        <Logo />
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <Form onAddItems={handleAddItems} />
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <PackingList
+            items={items}
+            onDeleteItem={handleDeleteItem}
+            onToggleItem={handleToggleItem}
+            onClearList={handleClearList}
+          />
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-md text-center">
+          <Stats items={items} />
+        </div>
+      </div>
     </div>
   );
 };

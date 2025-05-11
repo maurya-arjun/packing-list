@@ -19,8 +19,8 @@ const PackingList = ({ items, onDeleteItem, onToggleItem, onClearList }) => {
       .sort((a, b) => Number(a.packed) - Number(b.packed));
 
   return (
-    <div>
-      <ul>
+    <div className="flex flex-col gap-6">
+      <ul className="space-y-4">
         {sortedItems.map((item) => (
           <Item
             item={item}
@@ -30,17 +30,21 @@ const PackingList = ({ items, onDeleteItem, onToggleItem, onClearList }) => {
           />
         ))}
       </ul>
-      <div>
+      <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
         <select
           style={{ textTransform: "uppercase" }}
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
+          className="w-full sm:w-auto p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white uppercase"
         >
           <option value="input">Sort By Input Order</option>
           <option value="description">Sort By Description</option>
           <option value="packed">Sort By Packed Status</option>
         </select>
-        <button style={{ textTransform: "uppercase" }} onClick={onClearList}>
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto uppercase"
+          onClick={onClearList}
+        >
           Clear List
         </button>
       </div>
