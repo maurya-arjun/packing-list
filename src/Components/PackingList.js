@@ -41,12 +41,14 @@ const PackingList = ({ items, onDeleteItem, onToggleItem, onClearList }) => {
           <option value="description">Sort By Description</option>
           <option value="packed">Sort By Packed Status</option>
         </select>
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto uppercase"
-          onClick={onClearList}
-        >
-          Clear List
-        </button>
+        {sortedItems.length > 0 && (
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto uppercase"
+            onClick={onClearList}
+          >
+            Clear List
+          </button>
+        )}
       </div>
     </div>
   );
